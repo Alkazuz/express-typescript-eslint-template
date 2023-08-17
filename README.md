@@ -1,5 +1,4 @@
-
-# Título do Projeto
+# 🚀 Express TypeScript & ESLint Template
 
 This repository provides a clean, efficient, and expressive template for setting up a Node.js project with Express, TypeScript, and ESLint 🎉
 
