@@ -2,10 +2,13 @@ import { NextFunction, Request, Response } from 'express'
 import { ModelNotFoundException } from './ModelNotFoundException'
 import { ENVIROMENT } from '../constants'
 import { HttpCode } from '../constants/HttpCode'
+import NumberFormatException from './NumberFormatException'
 
 export function handleErrors(error: unknown, req: Request, res: Response, next: NextFunction) {
 	if (error instanceof ModelNotFoundException) {
 		return defaultHandler(error, HttpCode.NOT_FOUND, res)
+	} else if (error instanceof NumberFormatException) {
+		return defaultHandler(error, HttpCode.BAD_REQUEST, res)
 	}
 	next(error)
 }
