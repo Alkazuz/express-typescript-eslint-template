@@ -7,6 +7,7 @@ dotenv.config()
 const port = process.env.PORT || 3000
 export const app = express()
 
+app.use(express.json())
 app.use(handleErrors)
 
 loadRoutes()
