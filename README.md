@@ -14,7 +14,6 @@ cd express-typescript-eslint-template
 ```
 2. Install dependencies:
 ```bash
-Copy code
 npm install
 ```
 
