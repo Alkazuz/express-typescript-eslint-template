@@ -7,11 +7,9 @@ dotenv.config()
 const port = process.env.PORT || 3000
 const app = express()
 
-
 app.get('/test', () => {
 	throw new ModelNotFoundException('User') 
 })
-
 
 app.use(handleErrors)
 
