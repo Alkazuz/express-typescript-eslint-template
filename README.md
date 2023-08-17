@@ -1,11 +1,17 @@
-# 🚀 Express TypeScript & ESLint Template
+
+# Título do Projeto
 
 This repository provides a clean, efficient, and expressive template for setting up a Node.js project with Express, TypeScript, and ESLint 🎉
+
+
+
 
 ## 📦 Packages Used:
 - 🌐 Express: Fast, unopinionated, minimalist web framework for Node.js
 - 🌀 TypeScript: A typed superset of JavaScript that compiles to plain JavaScript.
 - 📏 ESLint: Pluggable JavaScript linter tool to identify and report on patterns.
+- ✨ Prettier: Opinionated code formatter.
+- 🐶 Husky: Git hooks made easy.
 ## 🔧 Getting Started
 1. Clone the repository:
 ```bash
@@ -14,6 +20,7 @@ cd express-typescript-eslint-template
 ```
 2. Install dependencies:
 ```bash
+Copy code
 npm install
 ```
 
