@@ -1,5 +1,5 @@
 {
-  "name": "Progweb",
+  "name": "express-typescript-eslint-template",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
