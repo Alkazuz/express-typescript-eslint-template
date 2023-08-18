@@ -1,17 +1,26 @@
-import { prisma } from '../database'
-import IUserRepository from './Interfaces/IUserRepository'
+import { Service } from 'typedi';
+import { prisma } from '../database';
+import IUserRepository from './Interfaces/IUserRepository';
+import { IUser } from '../models/User';
+import { ModelNotFoundException } from '../exceptions/ModelNotFoundException';
 
+@Service()
 export class UserRepository implements IUserRepository {
+  async getAll(): Promise<IUser[]> {
+    return await prisma.user.findMany();
+  }
 
-	async getAll(): Promise<typeof prisma.User[]> {
-		return await prisma.User.findMany()
-	}
+  async getById(id: number): Promise<IUser> {
+    const user = await prisma.user.findUnique({
+      where: {
+        id,
+      },
+    });
 
-	async getById(id: number): Promise<typeof prisma.User> {
-		return await prisma.User.findUnique({
-			where: {
-				id: id
-			}
-		})
-	}
+    if (!user) {
+      throw new ModelNotFoundException('User');
+    }
+
+    return user;
+  }
 }

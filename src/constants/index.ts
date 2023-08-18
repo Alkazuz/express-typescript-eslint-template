@@ -1,1 +1,1 @@
-export const ENVIROMENT = process.env.ENVIRONMENT || 'development'
+export const ENVIROMENT = process.env.ENVIRONMENT || 'development';

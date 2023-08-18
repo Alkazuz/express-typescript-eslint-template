@@ -1,6 +1,6 @@
-import { prisma } from '../../database'
+import { prisma } from '../../database';
 
 export default interface IUserRepository {
-    getAll(): Promise<typeof prisma.User[]>;
-    getById(id: number): Promise<typeof prisma.User>;
+	getAll(): Promise<(typeof prisma.User)[]>;
+	getById(id: number): Promise<typeof prisma.User>;
 }

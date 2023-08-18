@@ -1,15 +1,16 @@
-import Controller from '../Controller'
-import { Request, Response } from 'express'
-import { UserRepository } from '../../../repositories/UserRepository'
+import Controller from '../Controller';
+import { Request, Response } from 'express';
+import { Service } from 'typedi';
+import { UserService } from '../../../services/UserService';
 
-export default class FindAllUserController extends Controller {
-    constructor(private userRepository: UserRepository) {
-        super()
-    }
+@Service()
+export class FindAllUserController extends Controller {
+	constructor(private userService: UserService) {
+		super();
+	}
 
-    handle(_: Request, res: Response) {
-        const users = this.userRepository.getAll()
-
-        return this.sendResponse(res, users)
-    }
+	async handle(_: Request, res: Response) {
+		const users = await this.userService.getAllUsers();
+		return this.sendResponse(res, users);
+	}
 }

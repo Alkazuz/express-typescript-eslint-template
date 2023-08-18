@@ -1,15 +1,16 @@
-import express from 'express'
-import dotenv from 'dotenv'
-import { handleErrors } from './exceptions/Handler'
-import { loadRoutes } from './routes'
-dotenv.config()
+import express from 'express';
+import dotenv from 'dotenv';
+import 'reflect-metadata';
+import { handleErrors } from './exceptions/Handler';
+import { loadRoutes } from './routes';
+dotenv.config();
 
-const port = process.env.PORT || 3000
-export const app = express()
+const port = process.env.PORT || 3000;
+export const app = express();
 
-app.use(express.json())
-app.use(handleErrors)
+app.use(express.json());
+app.use(handleErrors);
 
-loadRoutes()
+loadRoutes();
 
-app.listen(port, () => console.log(`Server is running on port ${port}`))
+app.listen(port, () => console.log(`Server is running on port ${port}`));
