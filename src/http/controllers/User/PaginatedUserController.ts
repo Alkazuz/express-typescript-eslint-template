@@ -12,8 +12,8 @@ export class PaginatedUserController extends Controller {
 
     async handle(req: Request, res: Response) {
         // @ts-ignore
-        console.log(req.validatedData)
-        const users = await this.userService.paginateUsers(1, 10);
-        return this.sendResponse(res, users);
+        const { page, limit } = req.validatedData;
+        const users = await this.userService.paginateUsers(page || 1, limit || 10);
+        return this.sendPaginatedResponse(res, users);
     }
 }
