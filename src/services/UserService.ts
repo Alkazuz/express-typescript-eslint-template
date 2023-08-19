@@ -6,6 +6,10 @@ import { ModelNotFoundException } from '../exceptions/ModelNotFoundException';
 export class UserService {
 	constructor(private userRepository: UserRepository) { }
 
+	async paginateUsers(page: number, limit: number) {
+		return await this.userRepository.paginate(page, limit);
+	}
+
 	async getAllUsers() {
 		return await this.userRepository.getAll();
 	}
