@@ -1,6 +1,13 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import RequestValidator from "../RequestValidator";
 
 export default class PaginatedUserRequest extends RequestValidator {
+
+    constructor() {
+        super();
+        this.validation = this.validation.bind(this);
+    }
+
     protected rules() {
         return {
             page: 'integer|min:1',

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import Controller from '../Controller';
 import { Request, Response } from 'express';
 import { Service } from 'typedi';
@@ -9,8 +10,10 @@ export class PaginatedUserController extends Controller {
         super();
     }
 
-    async handle(_: Request, res: Response) {
-        const users = await this.userService.getAllUsers();
+    async handle(req: Request, res: Response) {
+        // @ts-ignore
+        console.log(req.validatedData)
+        const users = await this.userService.paginateUsers(1, 10);
         return this.sendResponse(res, users);
     }
 }

@@ -1,8 +1,8 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { NextFunction, Request, Response } from "express";
 import RuleValidator from "../rules/RuleValidator";
 
 export default class RequestValidator {
-
     protected rules() {
         return {};
     }
@@ -11,7 +11,7 @@ export default class RequestValidator {
         return {};
     }
 
-    public validation(request: Request, response: Response, next: NextFunction) {
+    public validation = (request: Request, response: Response, next: NextFunction) => {
         const ruleValidator = new RuleValidator(request, this.rules(), this.messages());
 
         if (ruleValidator.failed()) {
@@ -20,7 +20,9 @@ export default class RequestValidator {
                 errors: ruleValidator.getErrors()
             });
         }
-        // request['validated'] = ruleValidator.validated();
+        // @ts-ignore
+        request.validatedData = ruleValidator.validated();
+
         next();
     }
 }
