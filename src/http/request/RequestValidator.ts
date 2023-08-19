@@ -20,7 +20,7 @@ export default class RequestValidator {
                 errors: ruleValidator.getErrors()
             });
         }
-        request['validated'] = ruleValidator.validated();
+        // request['validated'] = ruleValidator.validated();
         next();
     }
 }

@@ -10,7 +10,8 @@ export function loadRoutes() {
 		Container.get(FindAllUserController).handle(req, res)
 	);
 
-	app.get('/users-paginated', new PaginatedUserRequest().validation, (req: Request, res: Response) =>
-		Container.get(PaginatedUserController).handle(req, res)
+	app.get('/users-paginated', new PaginatedUserRequest().validation, () =>
+		{}
+		//Container.get(PaginatedUserController).handle(req, res)
 	);
 }
